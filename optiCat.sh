@@ -8,9 +8,9 @@
 
 typeset -A config
 config=(
-	[optiLevel]="-o2" # Change to value from 1 to 7
 	[path]="/home/$USER/Pictures" # Enter a custom path if you wish (has to be absolute)
-	[showCommandList]="y" # If this is y the list of available commands is shown on startup
+	[optiLevel]="-o4" # Change to value from 1 to 7
+	[showCommandList]="n" # If this is y the list of available commands is shown on startup
 )
 
 ### CONFIG END ###
@@ -27,7 +27,7 @@ if [ ! -f ~/.config/optiCat/queue ]; then
 fi
 
 function printVersion() {
-	echo "optiCat - version 1.0.0"
+	echo "optiCat - version 1.1.0"
 }
 
 function printHelp() {
@@ -89,6 +89,8 @@ function handleCommands() {
 		printHelp;;
 	"version")
 		printVersion;;
+	"")
+		exit;;
 	*)
 		echo "Unrecognized command";;
 	esac
